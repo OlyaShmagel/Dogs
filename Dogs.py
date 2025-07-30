@@ -46,17 +46,22 @@ def prog():
     window.after(3000, show_image)
 
 
+def clear():
+    tabs = notebook.tabs()
+    for tab in tabs:
+        notebook.forget(tab)
 
 
 window = Tk()
 window.title('картинки с собачками')
 window.geometry('360x420')
 
-
 label = ttk.Label()
 label.pack(pady=10)
 
 button = ttk.Button(text='Заргузить изображение', command=prog)
+button.pack(pady=10)
+button = ttk.Button(text='Очистить вкладки', command=clear)
 button.pack(pady=10)
 
 progress = ttk.Progressbar(mode='determinate', length=300)
@@ -79,7 +84,5 @@ top_level_window.title('Изображение собачек')
 
 notebook = ttk.Notebook(top_level_window)
 notebook.pack(expand=True, fill='both', padx=10, pady=10)
-
-
 
 window.mainloop()
